@@ -1,0 +1,167 @@
+/* General Container */
+.code-editor-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 20px auto;
+  background: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* Form Section */
+.editor-form {
+  display: flex;
+  justify-content: space-between; /* This will distribute the space between the elements */
+  gap: 20px; /* Optional: Adjust the gap between each form element */
+  margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column; /* Keep the label and input stacked vertically */
+  flex: 1; /* This will make the elements take equal space horizontally */
+}
+
+.form-group label {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%; /* Ensure inputs and selects fill the available space */
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #1e3a8a;
+}
+
+
+/* Editor Section */
+.editor-section {
+  margin-bottom: 20px;
+  text-align: left;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Input and Output Section */
+.input-output-section {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.input-section,
+.output-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-section textarea,
+.output-section textarea {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  resize: none;
+  height: 100px;
+}
+
+.input-section h3,
+.output-section h3 {
+  margin-bottom: 10px;
+  color: #1e3a8a;
+}
+
+/* Button Group */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.run-btn,
+.save-btn,
+.clear-btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Button Colors */
+.run-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.run-btn:hover {
+  background-color: #388e3c;
+  transform: translateY(-2px);
+}
+
+.save-btn {
+  background-color: #2196f3;
+  color: white;
+}
+
+.save-btn:hover {
+  background-color: #1976d2;
+  transform: translateY(-2px);
+}
+
+.clear-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.clear-btn:hover {
+  background-color: #d32f2f;
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .code-editor-container {
+    padding: 15px;
+  }
+
+  .editor-title {
+    font-size: 2rem;
+  }
+
+  .button-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .run-btn,
+  .save-btn,
+  .clear-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .input-output-section {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .code-editor-form {
+    flex-direction: column; /* Stack form fields vertically on smaller screens */
+  }
+}

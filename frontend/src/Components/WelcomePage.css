@@ -1,0 +1,104 @@
+/* General Reset */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(120deg, #89f7fe, #66a6ff);
+    color: #333;
+  }
+  
+  /* Navbar Styles */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #1e3a8a;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .nav-links li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links li a:hover {
+    color: #ffeb3b;
+  }
+  
+  /* Welcome Header */
+  .welcome-header {
+    text-align: center;
+    margin-top: 100px;
+    animation: fadeIn 2s ease;
+  }
+  
+  .welcome-header h1 {
+    font-size: 2.5rem;
+    color: #1e3a8a;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  h4 {
+    color: red;
+  }
+  
+  /* Buttons */
+  .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .btn {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .new-user {
+    background: #4caf50;
+  }
+  
+  .existing-user {
+    background: #2196f3;
+  }
+  
+  .btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

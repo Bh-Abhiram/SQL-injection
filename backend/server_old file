@@ -1,0 +1,85 @@
+const express = require('express');
+const mysql = require('mysql2');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+
+const app = express();
+const port = 3000;
+
+// Enable CORS for all requests
+app.use(cors());
+
+// Body parser middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// MySQL database connection using mysql2
+const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'SQL',
+    password: 'SQLinjection',
+    database: 'SQLi',
+    multipleStatements: true // Allow multiple SQL commands
+});
+
+db.connect((err) => {
+    if (err) {
+        console.error("Could not connect to the database:", err);
+        process.exit(1);
+    }
+    console.log("Connected to MySQL database");
+});
+
+// Serve static files (for frontend)
+app.use(express.static('public'));
+
+// Vulnerable Registration Route
+app.post('/register', (req, res) => {
+    const { username, email, password } = req.body;
+
+    // Vulnerable SQL query by directly concatenating user input
+    const query = `INSERT INTO Users (username, email, password) VALUES ('${username}', '${email}', '${password}')`;
+    
+    db.query(query, (err) => {
+        if (err) {
+            console.error("Error inserting user:", err);
+            return res.status(500).json({ success: false, message: "Server error" });
+        }
+        return res.json({ success: true, message: "Registration successful!" });
+    });
+});
+
+//vulnerable login route
+app.post('/login', (req, res) => {
+    const { username, password } = req.body;
+
+    // Directly concatenate user inputs into the query (unsafe)
+    let query = `SELECT * FROM Users WHERE username = '${username}' AND password = '${password}'`;
+
+    // Log the constructed query for debugging
+    console.log("Constructed Query:", query);
+
+    db.query(query, (err, results) => {
+        if (err) {
+            console.error("Error executing query:", err);
+            return res.status(500).json({ success: false, message: "Server error" });
+        }
+
+        // Log the query results for debugging
+        console.log("Query Results:", results);
+
+        // Check if any results were returned
+        if (results.length > 0) {
+            return res.json({ success: true, message: "Login successful", user: results[0] });
+        } else {
+            return res.json({ success: false, message: "Invalid credentials" });
+        }
+    });
+});
+
+
+// Start the server
+app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}`);
+});
+

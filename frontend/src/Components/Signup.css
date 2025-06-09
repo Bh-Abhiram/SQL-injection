@@ -1,0 +1,125 @@
+/* General Styles */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(120deg, #89f7fe, #66a6ff);
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .auth-card {
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  .auth-card h2 {
+    font-size: 1.8rem;
+    color: #1e3a8a;
+    margin-bottom: 20px;
+  }
+  
+  /* Form Styles */
+  .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  
+  .form-group input:focus {
+    border-color: #1e3a8a;
+  }
+  
+  .password-wrapper {
+    display: flex;
+    align-items: center;
+  }
+  
+  .password-wrapper input {
+    flex: 1;
+  }
+  
+  .toggle-password {
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
+  }
+  
+  /* Form Options */
+  .form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-options label {
+    font-size: 0.9rem;
+  }
+  
+  .forgot-password {
+    font-size: 0.9rem;
+    color: #1e3a8a;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .forgot-password:hover {
+    color: #ff5722;
+  }
+  
+  /* Button Styles */
+  .auth-btn {
+    background: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  
+  .auth-btn:hover {
+    background: #388e3c;
+    transform: translateY(-2px);
+  }
+  
+  .redirect-text {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  .redirect-link {
+    color: #1e3a8a;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .redirect-link:hover {
+    color: #ff5722;
+  }
+  

