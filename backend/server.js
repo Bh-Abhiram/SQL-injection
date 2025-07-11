@@ -18,9 +18,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // MySQL database connection
 const db = mysql.createConnection({
     host: 'localhost',
-    user: 'SQL',
-    password: 'SQLinjection',
-    database: 'SQLi',
+    user: 'your_mysql_username',
+    password: 'your_mysql_user_password',
+    database: 'your_database_name',
     multipleStatements: true,
 });
 
@@ -36,8 +36,8 @@ db.connect((err) => {
 const transporter = nodemailer.createTransport({
     service: 'Gmail', // You can use other services like 'Yahoo', 'Outlook'
     auth: {
-      user: 'bheemaraju.abhiram03@gmail.com',
-      pass: 'hlkd olye qshh aaap', // Use environment variables for better security
+      user: 'you_email@gmail.com',
+      pass: 'your_app_password', // Use environment variables for better security
     },
   });
 
@@ -117,7 +117,7 @@ app.post('/forgot-password', (req, res) => {
       // Send reset instructions via email
       const resetLink = `http://localhost:3001/reset-password/${resetToken}`;
       const mailOptions = {
-        from: 'bheemaraju.abhiram03@gmail.com',
+        from: 'your_email@gmail.com',
         to: email,
         subject: 'Password Reset Instructions',
         html: `
